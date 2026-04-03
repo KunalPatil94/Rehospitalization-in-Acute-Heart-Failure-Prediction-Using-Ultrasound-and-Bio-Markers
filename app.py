@@ -1409,7 +1409,7 @@ def display_risk_results(predictions, ensemble_prob, risk_level, risk_css, patie
             'threshold': {'line': {'color': '#FF6B6B', 'width': 2}, 'thickness': 0.8, 'value': 70}
         }
     ))
-    fig_gauge.update_layout(**PLOTLY_LAYOUT, height=240, margin=dict(t=30, l=15, r=15, b=10))
+    fig_gauge.update_layout(**{**PLOTLY_LAYOUT, 'margin': dict(t=30, l=15, r=15, b=10)}, height=240)
     st.plotly_chart(fig_gauge, use_container_width=True)
 
     # Risk badge
