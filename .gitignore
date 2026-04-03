@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+*.db
+uv.lock
+attached_assets/
+.replitstreamlit run app.py
