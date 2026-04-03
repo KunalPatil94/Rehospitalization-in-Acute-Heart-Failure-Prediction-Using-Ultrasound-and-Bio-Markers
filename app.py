@@ -1433,9 +1433,10 @@ def display_risk_results(predictions, ensemble_prob, risk_level, risk_css, patie
         text=[f"{lr_p:.1%}", f"{xgb_p:.1%}", f"{ensemble_prob:.1%}"],
         textposition='outside', textfont=dict(color='#E8EDF5', size=11)
     ))
-    fig_bar.update_layout(**PLOTLY_LAYOUT, height=200,
-                          title="Model Comparison", yaxis=dict(range=[0, 110], title='Risk (%)'),
-                          margin=dict(t=35, l=5, r=5, b=5))
+    fig_bar.update_layout(**{**PLOTLY_LAYOUT, 
+                         'yaxis': dict(range=[0, 110], title='Risk (%)'),
+                         'margin': dict(t=35, l=5, r=5, b=5)}, 
+                      height=200, title="Model Comparison")
     st.plotly_chart(fig_bar, use_container_width=True)
 
     # SHAP explainability
