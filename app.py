@@ -33,13 +33,13 @@ st.set_page_config(
 # ─── Global CSS ─────────────────────────────────────────────────────────────
 st.markdown("""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap');
 
 /* ─── Base Reset ─── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html, body, [class*="css"] {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Manrope', sans-serif;
     background-color: #070D1A;
     color: #E8EDF5;
 }
@@ -69,9 +69,9 @@ section[data-testid="stSidebar"] .block-container {
 }
 
 .sidebar-brand h1 {
-    font-family: 'Syne', sans-serif;
-    font-size: 1.3rem;
-    font-weight: 800;
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
     background: linear-gradient(135deg, #00D2B4, #0084FF);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -98,7 +98,7 @@ section[data-testid="stSidebar"] .block-container {
 }
 
 .sidebar-user-card .user-name {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 0.95rem;
     font-weight: 600;
     color: #E8EDF5;
@@ -120,24 +120,24 @@ section[data-testid="stSidebar"] .block-container {
 
 /* ─── Typography ─── */
 h1, h2, h3 {
-    font-family: 'Syne', sans-serif !important;
-    font-weight: 700 !important;
+    font-family: 'Manrope', sans-serif !important;
+    font-weight: 600 !important;
     letter-spacing: -0.02em;
 }
 
 /* ─── Page Title ─── */
 .page-header {
-    padding: 8px 0 28px;
+    padding: 4px 0 10px;
     border-bottom: 1px solid rgba(0,210,180,0.1);
-    margin-bottom: 28px;
+    margin-bottom: 14px;
 }
 
 .page-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 2rem;
-    font-weight: 800;
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
     color: #F0F4FF;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.01em;
     line-height: 1.1;
 }
 
@@ -200,9 +200,9 @@ h1, h2, h3 {
 }
 
 .metric-card .metric-value {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 2rem;
-    font-weight: 800;
+    font-weight: 700;
     color: #F0F4FF;
     line-height: 1;
     letter-spacing: -0.03em;
@@ -247,7 +247,7 @@ h1, h2, h3 {
 }
 
 .section-card-title {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 1.05rem;
     font-weight: 700;
     color: #E8EDF5;
@@ -275,7 +275,7 @@ h1, h2, h3 {
     gap: 6px;
     padding: 8px 18px;
     border-radius: 30px;
-    font-family: 'Syne', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-weight: 700;
     font-size: 0.9rem;
     letter-spacing: 0.02em;
@@ -326,7 +326,7 @@ div[data-testid="stMetric"] label {
 }
 
 div[data-testid="stMetric"] [data-testid="metric-container"] div:nth-child(2) {
-    font-family: 'Syne', sans-serif !important;
+    font-family: 'Manrope', sans-serif !important;
     font-size: 1.8rem !important;
     font-weight: 800 !important;
     color: #F0F4FF !important;
@@ -340,31 +340,37 @@ div[data-testid="stForm"] {
     padding: 20px !important;
 }
 
-/* Buttons */
+/* ---------- BUTTON STYLE FIX ---------- */
+
 div.stButton > button {
-    background: linear-gradient(135deg, #00D2B4 0%, #0084FF 100%) !important;
-    color: #070D1A !important;
+    background: linear-gradient(135deg, #00D2B4, #0084FF) !important;
+    color: #0A0F1F !important;
     border: none !important;
     border-radius: 10px !important;
-    font-family: 'DM Sans', sans-serif !important;
     font-weight: 600 !important;
     font-size: 0.9rem !important;
-    letter-spacing: 0.02em !important;
-    padding: 10px 24px !important;
-    transition: all 0.2s ease !important;
-    box-shadow: 0 4px 15px rgba(0,210,180,0.2) !important;
+    padding: 10px 20px !important;
+    transition: all 0.25s ease !important;
+    box-shadow: 0 4px 14px rgba(0,210,180,0.25) !important;
 }
 
+/* hover */
 div.stButton > button:hover {
     transform: translateY(-1px) !important;
-    box-shadow: 0 6px 25px rgba(0,210,180,0.35) !important;
+    box-shadow: 0 6px 22px rgba(0,210,180,0.4) !important;
 }
 
+/* secondary buttons */
 div.stButton > button[kind="secondary"] {
-    background: rgba(255,255,255,0.05) !important;
-    color: rgba(180,200,220,0.8) !important;
-    border: 1px solid rgba(255,255,255,0.1) !important;
-    box-shadow: none !important;
+    background: rgba(255,255,255,0.06) !important;
+    color: #E8EDF5 !important;
+    border: 1px solid rgba(255,255,255,0.12) !important;
+}
+
+/* disabled button */
+div.stButton > button:disabled {
+    background: rgba(255,255,255,0.08) !important;
+    color: rgba(255,255,255,0.35) !important;
 }
 
 /* Inputs */
@@ -375,7 +381,7 @@ textarea {
     border: 1px solid rgba(0,210,180,0.15) !important;
     border-radius: 10px !important;
     color: #E8EDF5 !important;
-    font-family: 'DM Sans', sans-serif !important;
+    font-family: 'Manrope', sans-serif !important;
 }
 
 div[data-testid="stTextInput"] input:focus,
@@ -419,7 +425,7 @@ div[data-testid="stTabs"] > div:first-child {
 }
 
 button[data-testid="stTab"] {
-    font-family: 'DM Sans', sans-serif !important;
+    font-family: 'Manrope', sans-serif !important;
     font-weight: 500 !important;
     color: rgba(180,200,220,0.6) !important;
     border-radius: 8px 8px 0 0 !important;
@@ -445,7 +451,7 @@ div[data-testid="stProgress"] > div > div {
 /* Checkbox */
 label[data-testid="stCheckbox"] span {
     color: #E8EDF5 !important;
-    font-family: 'DM Sans', sans-serif !important;
+    font-family: 'Manrope', sans-serif !important;
 }
 
 /* Main scrollbar */
@@ -500,7 +506,7 @@ label[data-testid="stCheckbox"] span {
 }
 
 .bio-card .bio-name {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 0.95rem;
     font-weight: 700;
     color: #F0F4FF;
@@ -508,7 +514,7 @@ label[data-testid="stCheckbox"] span {
 }
 
 .bio-card .bio-unit {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Manrope', monospace;
     font-size: 0.75rem;
     color: #00D2B4;
     margin-bottom: 10px;
@@ -575,11 +581,11 @@ label[data-testid="stCheckbox"] span {
     font-size: 0.7rem;
     color: rgba(180,200,220,0.4);
     margin-bottom: 4px;
-    font-family: 'DM Mono', monospace;
+    font-family: 'Manrope', monospace;
 }
 
 .timeline-content .t-pid {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 0.9rem;
     font-weight: 600;
     color: #E8EDF5;
@@ -600,7 +606,7 @@ label[data-testid="stCheckbox"] span {
 }
 
 .login-hero h1 {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 2.2rem !important;
     font-weight: 800 !important;
     background: linear-gradient(135deg, #00D2B4, #0084FF);
@@ -626,7 +632,7 @@ div[data-testid="stToolbar"] { visibility: hidden; }
 /* ─── Subheader override ─── */
 h2[data-testid="stHeading"],
 .stMarkdown h2 {
-    font-family: 'Syne', sans-serif !important;
+    font-family: 'Manrope', sans-serif !important;
     font-size: 1.2rem !important;
     font-weight: 700 !important;
     color: #F0F4FF !important;
@@ -658,7 +664,7 @@ h2[data-testid="stHeading"],
 }
 
 .overview-hero h2 {
-    font-family: 'Syne', sans-serif !important;
+    font-family: 'Manrope', sans-serif !important;
     font-size: 1.7rem !important;
     font-weight: 800 !important;
     color: #F0F4FF !important;
@@ -847,15 +853,76 @@ color:#E6F0FF !important;
     70%{transform:scale(1.7);opacity:0;}
     100%{transform:scale(1.7);opacity:0;}
 }
+            
+
+/* Remove extra container above login tabs */
+div[data-testid="stTabs"] {
+    margin-top: 0px !important;
+}
+
+div[data-testid="stTabs"] > div:first-child {
+    border-bottom: none !important;
+}
+
+/* Remove unwanted top box */
+.stTabs {
+    background: transparent !important;
+    border: none !important;
+}
+            
+
+/* Remove large top spacing */
+.block-container {
+    padding-top: 0.8rem !important;
+    padding-bottom: 1rem !important;
+}
+
+.page-header {
+    padding: 4px 0 10px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid rgba(0,210,180,0.12);
+}
+            
+.page-title{
+    font-size:1.5rem;
+    font-weight:600;
+    letter-spacing:-0.01em;
+}
+            
+
+.page-subtitle{
+    margin-top:4px;
+    font-size:0.85rem;
+    color:#9FB3C8;
+}
+            
+.section-card{
+    margin-bottom:12px !important;
+    padding: 20px 22px;
+}     
+div[data-testid="stForm"]{
+    padding:18px !important;
+}    
+
+h1,h2,h3{
+margin-top:8px !important;
+margin-bottom:8px !important;
+}
+
+.stMarkdown{
+margin-bottom:8px !important;
+}  
 </style>
 """, unsafe_allow_html=True)
+
+
 
 # ─── Plotly Theme ────────────────────────────────────────────────────────────
 PLOTLY_LAYOUT = dict(
     paper_bgcolor='rgba(0,0,0,0)',
     plot_bgcolor='rgba(13,27,46,0.5)',
-    font=dict(family='DM Sans, sans-serif', color='#B4C8DC', size=12),
-    title_font=dict(family='Syne, sans-serif', color='#F0F4FF', size=15),
+    font=dict(family='Manrope, sans-serif', color='#B4C8DC', size=12),
+    title_font=dict(family='Manrope, sans-serif', color='#F0F4FF', size=15),
     xaxis=dict(gridcolor='rgba(255,255,255,0.05)', zerolinecolor='rgba(255,255,255,0.08)'),
     yaxis=dict(gridcolor='rgba(255,255,255,0.05)', zerolinecolor='rgba(255,255,255,0.08)'),
     legend=dict(bgcolor='rgba(0,0,0,0)', bordercolor='rgba(255,255,255,0.06)', font=dict(color='#B4C8DC')),
@@ -1271,9 +1338,9 @@ def overview_page():
             st.markdown(f"""
             <div class="section-card" style="text-align:center">
                 <div style="font-size:2rem;margin-bottom:10px">{icon}</div>
-                <div style="font-family:'Syne',sans-serif;font-size:0.85rem;font-weight:700;
+                <div style="font-family:'Manrope',sans-serif;font-size:0.85rem;font-weight:700;
                      color:#00D2B4;margin-bottom:6px">STEP {num}</div>
-                <div style="font-family:'Syne',sans-serif;font-size:0.95rem;font-weight:700;
+                <div style="font-family:'Manrope',sans-serif;font-size:0.95rem;font-weight:700;
                      color:#F0F4FF;margin-bottom:8px">{title}</div>
                 <div style="font-size:0.8rem;color:rgba(180,200,220,0.6);line-height:1.5">{desc}</div>
             </div>
@@ -1338,7 +1405,7 @@ def risk_assessment_page():
         result_placeholder.markdown("""
         <div class="section-card" style="text-align:center;padding:40px 20px">
             <div style="font-size:3rem;margin-bottom:14px;opacity:0.3">🫀</div>
-            <div style="font-family:'Syne',sans-serif;font-size:1rem;font-weight:600;
+            <div style="font-family:'Manrope',sans-serif;font-size:1rem;font-weight:600;
                  color:rgba(180,200,220,0.4)">
                 Complete the form and run the assessment to see results here.
             </div>
@@ -1394,8 +1461,8 @@ def display_risk_results(predictions, ensemble_prob, risk_level, risk_css, patie
         mode="gauge+number",
         value=round(ensemble_prob * 100, 1),
         domain={'x': [0, 1], 'y': [0, 1]},
-        title={'text': "30-Day Readmission Risk", 'font': {'family': 'Syne, sans-serif', 'size': 13, 'color': '#B4C8DC'}},
-        number={'suffix': '%', 'font': {'family': 'Syne, sans-serif', 'size': 36, 'color': '#F0F4FF'}},
+        title={'text': "30-Day Readmission Risk", 'font': {'family': 'Manrope, sans-serif', 'size': 13, 'color': '#B4C8DC'}},
+        number={'suffix': '%', 'font': {'family': 'Manrope, sans-serif', 'size': 36, 'color': '#F0F4FF'}},
         gauge={
             'axis': {'range': [0, 100], 'tickcolor': '#B4C8DC', 'tickwidth': 1},
             'bar': {'color': '#FF6B6B' if risk_css == 'high' else '#FFB400' if risk_css == 'moderate' else '#00D282', 'thickness': 0.25},
@@ -1409,7 +1476,7 @@ def display_risk_results(predictions, ensemble_prob, risk_level, risk_css, patie
             'threshold': {'line': {'color': '#FF6B6B', 'width': 2}, 'thickness': 0.8, 'value': 70}
         }
     ))
-    fig_gauge.update_layout(**PLOTLY_LAYOUT, height=240, margin=dict(t=30, l=15, r=15, b=10))
+    fig_gauge.update_layout(**PLOTLY_LAYOUT, height=240)
     st.plotly_chart(fig_gauge, use_container_width=True)
 
     # Risk badge
@@ -1433,9 +1500,10 @@ def display_risk_results(predictions, ensemble_prob, risk_level, risk_css, patie
         text=[f"{lr_p:.1%}", f"{xgb_p:.1%}", f"{ensemble_prob:.1%}"],
         textposition='outside', textfont=dict(color='#E8EDF5', size=11)
     ))
-    fig_bar.update_layout(**PLOTLY_LAYOUT, height=200,
-                          title="Model Comparison", yaxis=dict(range=[0, 110], title='Risk (%)'),
-                          margin=dict(t=35, l=5, r=5, b=5))
+    fig_bar.update_layout(**PLOTLY_LAYOUT,
+                      height=200,
+                      title="Model Comparison",
+                      yaxis=dict(range=[0, 110], title='Risk (%)'))
     st.plotly_chart(fig_bar, use_container_width=True)
 
     # SHAP explainability
@@ -1453,7 +1521,7 @@ def display_risk_results(predictions, ensemble_prob, risk_level, risk_css, patie
                 <div style="display:flex;justify-content:space-between;align-items:center;
                      padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.83rem">
                     <span style="color:#B4C8DC">{factor.replace('_',' ').title()}</span>
-                    <span style="color:{color};font-family:'DM Mono',monospace;font-size:0.78rem">
+                    <span style="color:{color};font-family:'Manrope',monospace;font-size:0.78rem">
                         {arrow} {abs(contrib):.3f}
                     </span>
                 </div>
@@ -1562,7 +1630,7 @@ def patient_monitoring_page():
                         <span class="risk-badge {risk_class}" style="font-size:0.75rem;padding:4px 12px">
                             {row['risk_level']}
                         </span>
-                        <span style="font-family:'DM Mono',monospace;font-size:0.8rem;
+                        <span style="font-family:'Manrope',monospace;font-size:0.8rem;
                               color:rgba(180,200,220,0.6)">Score: {pct}</span>
                     </div>
                 </div>
@@ -1682,9 +1750,9 @@ def biomarker_reference_page():
             st.markdown(f"""
             <div class="section-card" style="text-align:center">
                 <div style="font-size:2rem;margin-bottom:8px">{icon}</div>
-                <div style="font-family:'Syne',sans-serif;font-size:0.9rem;font-weight:700;
+                <div style="font-family:'Manrope',sans-serif;font-size:0.9rem;font-weight:700;
                      color:#F0F4FF;margin-bottom:6px">{name}</div>
-                <div style="font-family:'DM Mono',monospace;font-size:1.1rem;
+                <div style="font-family:'Manrope',monospace;font-size:1.1rem;
                      color:#FF6B6B;font-weight:600;margin-bottom:10px">{risk_add}</div>
                 <div style="font-size:0.78rem;color:rgba(180,200,220,0.55);line-height:1.5">{desc}</div>
             </div>
