@@ -1199,17 +1199,64 @@ def render_sidebar():
         st.session_state.dark_mode = not st.session_state.dark_mode
         st.rerun()
 
-    # Inject theme class
-    theme_class = "" if st.session_state.dark_mode else "light-mode"
-    st.markdown(f"""
-    <script>
-    var app = window.parent.document.querySelector('.stApp');
-    if(app) {{
-        app.classList.remove('light-mode');
-        if('{theme_class}') app.classList.add('{theme_class}');
-    }}
-    </script>
-    """, unsafe_allow_html=True)
+    # Inject theme CSS directly based on session state (reliable in Streamlit)
+    if not st.session_state.dark_mode:
+        st.markdown("""
+        <style>
+        .stApp, html, body, [class*="css"] {
+            background-color: #EEF2FF !important;
+            color: #0A1628 !important;
+        }
+        .stApp {
+            background: linear-gradient(135deg, #EEF2FF 0%, #E4ECFF 50%, #EAF0FF 100%) !important;
+        }
+        section[data-testid="stSidebar"] {
+            background: linear-gradient(180deg, #FFFFFF 0%, #EEF4FF 100%) !important;
+            border-right: 1px solid rgba(0,100,200,0.15) !important;
+        }
+        section[data-testid="stSidebar"] * { color: #0A1628 !important; }
+        .sidebar-brand h1 {
+            background: linear-gradient(135deg, #0066CC, #0084FF) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+        }
+        .sidebar-brand p { color: rgba(40,60,100,0.6) !important; }
+        .sidebar-user-card { background: rgba(0,100,200,0.07) !important; border-color: rgba(0,100,200,0.15) !important; }
+        .page-title { color: #0A1628 !important; }
+        .page-subtitle { color: rgba(40,70,120,0.65) !important; }
+        p, span, li { color: #1A2E50 !important; }
+        h1, h2, h3, h4 { color: #0A1628 !important; }
+        .stMarkdown h2 { color: #0A1628 !important; border-color: rgba(0,100,200,0.1) !important; }
+        .section-card { background: rgba(255,255,255,0.92) !important; border-color: rgba(0,100,200,0.1) !important; color: #0A1628 !important; }
+        .section-card * { color: #0A1628 !important; }
+        .overview-hero { background: linear-gradient(135deg, rgba(0,100,200,0.07), rgba(0,132,255,0.04)) !important; border-color: rgba(0,100,200,0.15) !important; }
+        .overview-hero h2 { color: #0A1628 !important; }
+        .overview-hero p { color: rgba(20,50,100,0.75) !important; }
+        .info-box { background: rgba(0,100,200,0.06) !important; border-color: rgba(0,100,200,0.2) !important; color: rgba(10,40,100,0.85) !important; }
+        .warning-box { background: rgba(200,130,0,0.07) !important; color: rgba(120,70,0,0.9) !important; }
+        .danger-box { background: rgba(200,50,50,0.07) !important; color: rgba(140,30,30,0.9) !important; }
+        .bio-card { background: linear-gradient(135deg, rgba(255,255,255,0.98), rgba(235,242,255,0.98)) !important; border-color: rgba(0,100,200,0.1) !important; }
+        .bio-card .bio-name { color: #0A1628 !important; }
+        .bio-card .bio-range { color: rgba(30,60,120,0.65) !important; }
+        .timeline-content { background: rgba(240,245,255,0.8) !important; border-color: rgba(0,100,200,0.08) !important; }
+        .timeline-content .t-pid { color: #0A1628 !important; }
+        .timeline-content .t-date { color: rgba(40,70,120,0.45) !important; }
+        div[data-testid="stMetric"] { background: linear-gradient(135deg, rgba(255,255,255,0.98), rgba(235,242,255,0.98)) !important; border-color: rgba(0,100,200,0.12) !important; }
+        div[data-testid="stMetric"] label { color: rgba(40,70,120,0.55) !important; }
+        div[data-testid="stMetric"] [data-testid="metric-container"] div:nth-child(2) { color: #0A1628 !important; }
+        div[data-testid="stTextInput"] input, div[data-testid="stNumberInput"] input, textarea { background: rgba(240,245,255,0.9) !important; border-color: rgba(0,100,200,0.2) !important; color: #0A1628 !important; }
+        div[data-testid="stForm"] { background: rgba(235,242,255,0.5) !important; border-color: rgba(0,100,200,0.1) !important; }
+        div[data-testid="stSelectbox"] { background: rgba(240,245,255,0.9) !important; }
+        div[data-testid="stDataFrame"] { border-color: rgba(0,100,200,0.15) !important; }
+        button[data-testid="stTab"] { color: rgba(40,70,120,0.6) !important; }
+        button[data-testid="stTab"][aria-selected="true"] { color: #0066CC !important; border-bottom-color: #0066CC !important; }
+        div[data-testid="stTabs"] > div:first-child { border-bottom-color: rgba(0,100,200,0.15) !important; }
+        .sep-label { color: rgba(40,70,120,0.4) !important; }
+        .metric-card { background: linear-gradient(135deg, rgba(255,255,255,0.98), rgba(235,242,255,0.98)) !important; border-color: rgba(0,100,200,0.12) !important; }
+        .metric-card .metric-label { color: rgba(40,70,120,0.55) !important; }
+        .metric-card .metric-value { color: #0A1628 !important; }
+        </style>
+        """, unsafe_allow_html=True)
 
     if st.sidebar.button(
         "🚪  Sign Out",
@@ -2061,4 +2108,3 @@ else:
         reports_page()
     elif selected_page == "System Administration":
         admin_page()
-        #
