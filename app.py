@@ -1433,10 +1433,10 @@ def display_risk_results(predictions, ensemble_prob, risk_level, risk_css, patie
         text=[f"{lr_p:.1%}", f"{xgb_p:.1%}", f"{ensemble_prob:.1%}"],
         textposition='outside', textfont=dict(color='#E8EDF5', size=11)
     ))
-    fig_bar.update_layout(**{**PLOTLY_LAYOUT, 
-                         'yaxis': dict(range=[0, 110], title='Risk (%)'),
-                         'margin': dict(t=35, l=5, r=5, b=5)}, 
-                      height=380, title="Model Comparison")
+    fig_bar.update_layout(**{**PLOTLY_LAYOUT,
+                             'yaxis': dict(range=[0, 110], title='Risk (%)', gridcolor='rgba(255,255,255,0.05)', zerolinecolor='rgba(255,255,255,0.08)'),
+                             'margin': dict(t=35, l=5, r=5, b=5)},
+                          height=200, title="Model Comparison")
     st.plotly_chart(fig_bar, use_container_width=True)
 
     # SHAP explainability
@@ -1761,15 +1761,15 @@ def model_performance_page():
                     line=dict(color='rgba(0,210,180,0.3)', width=1)
                 )
             ))
-            fig_imp.update_layout(
-    height=380,
-    title="Top Feature Importances (XGBoost)",
-    xaxis_title="Importance Score"
-)
-
-            fig_imp.update_yaxes(autorange="reversed")
-
-            fig_imp.update_layout(**PLOTLY_LAYOUT)
+            fig_imp.update_layout(**{**PLOTLY_LAYOUT,
+                                     'yaxis': dict(
+                                         gridcolor='rgba(255,255,255,0.05)',
+                                         zerolinecolor='rgba(255,255,255,0.08)',
+                                         autorange='reversed'
+                                     )},
+                                  height=380,
+                                  title="Top Feature Importances (XGBoost)",
+                                  xaxis_title="Importance Score")
             st.plotly_chart(fig_imp, use_container_width=True)
 
     with tab_drift:
@@ -1972,3 +1972,4 @@ else:
         reports_page()
     elif selected_page == "System Administration":
         admin_page()
+        #
