@@ -11,3 +11,4 @@ scipy>=1.11.0
 streamlit>=1.35.0
 xgboost>=2.0.0
 streamlit-lottie>=0.0.5
+psycopg2-binary>=2.9.0
